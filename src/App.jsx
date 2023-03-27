@@ -1,7 +1,10 @@
+import { useState } from "react";
+import PhonenumberInput from "./components/PhonenumberInput";
+
 function App() {
   return (
-    <div className="">
-      <span>hello world</span>
+    <div>
+      <PhonenumberInput/>
     </div>
   );
 }
