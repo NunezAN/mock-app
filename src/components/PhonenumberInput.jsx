@@ -2,14 +2,17 @@ import React, { useState } from "react";
 
 const PhonenumberInput = () => {
   const [number, setNumber] = useState("");
-  const handleInput = (e) => {
-    let curr = e.currentTarget.value.replace(/\D/g, "");
-    console.log(curr);
-    if (curr.length > 10) curr = curr.slice(0, 10);
-    if (curr.length > 6) curr = `${curr.slice(0, 6)}-${curr.slice(6)}`;
-    if (curr.length > 3) curr = `(${curr.slice(0, 3)})${curr.slice(3)}`;
-    setNumber(curr);
-  };
+  const [value, setValue] = useState(initialValue);
+  const push = useCallback((item: T) => {
+    setValue(cur => [...cur, item])
+  }, [])
+
+  const removeByIndex = useCallback((index: number) => setValue(cur => {
+    const copy = [...cur];
+    copy.splice(index, 1);
+    return copy;
+  }), [])
+  return { value, push, removeByIndex };
   // your code here
   return (
     <input
