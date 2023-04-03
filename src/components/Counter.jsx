@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Adding from "./components/Adding";
-import Subtract from "./components/Subtract";
-import CounterContext from "./context";
+import Adding from "./Adding";
+import Subtract from "./Subtract";
+import mainContext from "../context";
 
 function Counter() {
   const [counter, setCounter] = useState(0);
@@ -13,13 +13,13 @@ function Counter() {
   };
   return (
     <div className="bg-slate-400 p-8 text-2xl grid grid-cols-3 mt-8 mx-auto rounded-3xl max-w-xl">
-      <CounterContext.Provider
+      <mainContext.Provider
         value={{ counter, handleAddition, handleSubtraction }}
       >
         <Subtract />
         <div className="flex items-center justify-center p-4">{counter}</div>
         <Adding />
-      </CounterContext.Provider>
+      </mainContext.Provider>
     </div>
   );
 }
