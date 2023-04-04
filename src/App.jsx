@@ -1,4 +1,5 @@
 import Counter from "./components/Counter";
+import DisplayApi from "./components/DisplayApi";
 import List from "./components/List";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Counter></Counter>
       <List></List>
+      <DisplayApi />
     </div>
   );
 }
